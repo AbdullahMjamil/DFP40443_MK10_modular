@@ -3,8 +3,10 @@ session_start();
 
 $menu = $_GET['menu'] ?? 'utama';
 
+require 'data/products.php';
+
 if ($menu === 'utama') {
-    $data = [
+    $products = [
         ['id' => 1, 'nama' => 'Kuih Semperit', 'gambar' => 'kuih_semperit.png', 'harga' => ['pek_mini' => 2.00, 'kecil' => 17.00, 'besar' => 34.00]],
         ['id' => 2, 'nama' => 'Biskut Mazola', 'gambar' => 'biskut_mazola.png', 'harga' => ['pek_mini' => 2.00, 'kecil' => 20.00, 'besar' => 40.00]],
         ['id' => 3, 'nama' => 'Buah Pinggang', 'gambar' => 'buah_pinggang.jpg', 'harga' => ['pek_mini' => 2.00, 'kecil' => 22.00, 'besar' => 44.00]],
@@ -51,7 +53,7 @@ if ($menu === 'utama') {
             </div>
             <h1 class="page-title">Selamat Datang</h1>
             <div class="gallery-row">
-                <?php foreach ($data as $produk): ?>
+                <?php foreach ($products as $produk): ?>
                     <img src="gambar/<?= htmlspecialchars($produk['gambar']) ?>" alt="<?= htmlspecialchars($produk['nama']) ?>" class="gallery-thumb">
                 <?php endforeach; ?>
             </div>
@@ -67,7 +69,7 @@ if ($menu === 'utama') {
     </html>
     <?php
 } elseif ($menu === 'tempah') {
-    $data = [
+    $products = [
         ['id' => 1, 'nama' => 'Kuih Semperit', 'gambar' => 'kuih_semperit.png', 'harga' => ['pek_mini' => 2.00, 'kecil' => 17.00, 'besar' => 34.00]],
         ['id' => 2, 'nama' => 'Biskut Mazola', 'gambar' => 'biskut_mazola.png', 'harga' => ['pek_mini' => 2.00, 'kecil' => 20.00, 'besar' => 40.00]],
         ['id' => 3, 'nama' => 'Buah Pinggang', 'gambar' => 'buah_pinggang.jpg', 'harga' => ['pek_mini' => 2.00, 'kecil' => 22.00, 'besar' => 44.00]],
@@ -82,7 +84,7 @@ if ($menu === 'utama') {
 
         foreach ($tempahan_input as $produk_id => $saiz_list) {
             $produk_detail = null;
-            foreach ($data as $p) {
+            foreach ($products as $p) {
                 if ($p['id'] == $produk_id) {
                     $produk_detail = $p;
                     break;
@@ -290,7 +292,7 @@ if ($menu === 'utama') {
             <h1 class="page-title">Borang Tempahan</h1>
             <form action="" method="POST">
                 <div class="product-grid">
-                    <?php foreach ($data as $produk): ?>
+                    <?php foreach ($products as $produk): ?>
                         <div class="product-card">
                             <img src="gambar/<?= htmlspecialchars($produk['gambar']) ?>" alt="<?= htmlspecialchars($produk['nama']) ?>" class="product-image">
                             <h3 class="product-name"><?= htmlspecialchars($produk['nama']) ?></h3>

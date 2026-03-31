@@ -24,7 +24,7 @@ require __DIR__ . '/../includes/header.php';
         Invois akan dipaparkan secara automatik.
         Sila klik butang <strong>Cetak</strong> untuk mencetak invois tersebut.
         Invois ini perlu diserahkan kepada kami semasa membuat tempahan.
-        Bayaran boleh dibuat secara tunai atau imbas Kod QR semasa hari pengambilan tempahan.
+        Bayaran boleh dibuat secara tunai atau imbasan Kod QR semasa hari pengambilan tempahan.
         Terima kasih!
     </p>
 </div>
